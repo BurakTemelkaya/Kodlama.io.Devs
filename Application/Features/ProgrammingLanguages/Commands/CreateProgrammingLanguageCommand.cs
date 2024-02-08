@@ -7,26 +7,26 @@ using MediatR;
 
 namespace Application.Features.ProgrammingLanguages.Commands
 {
-    public class CreateProgramingLanguageCommand : IRequest<CreatedProgrammingLanguageDto>
+    public class CreateProgrammingLanguageCommand : IRequest<CreatedProgrammingLanguageDto>
     {
         public string Name { get; set; }
         public int PublicationDate { get; set; }
 
-        public class CreateProgramingLanguageCommandHandler : IRequestHandler<CreateProgramingLanguageCommand, CreatedProgrammingLanguageDto>
+        public class CreateProgrammingLanguageCommandHandler : IRequestHandler<CreateProgrammingLanguageCommand, CreatedProgrammingLanguageDto>
         {
             private readonly IProgramingLanguageRepository _programingLanguageRepository;
             private readonly IMapper _mapper;
-            private readonly ProgramingLanguageBusinessRules _programingLanguageBusinessRules;
+            private readonly ProgrammingLanguageBusinessRules _programingLanguageBusinessRules;
 
-            public CreateProgramingLanguageCommandHandler(IProgramingLanguageRepository programingLanguageRepository,
-                IMapper mapper, ProgramingLanguageBusinessRules programingLanguageBusinessRules)
+            public CreateProgrammingLanguageCommandHandler(IProgramingLanguageRepository programingLanguageRepository,
+                IMapper mapper, ProgrammingLanguageBusinessRules programingLanguageBusinessRules)
             {
                 _programingLanguageRepository = programingLanguageRepository;
                 _mapper = mapper;
                 _programingLanguageBusinessRules = programingLanguageBusinessRules;
             }
 
-            public async Task<CreatedProgrammingLanguageDto> Handle(CreateProgramingLanguageCommand request, CancellationToken cancellationToken)
+            public async Task<CreatedProgrammingLanguageDto> Handle(CreateProgrammingLanguageCommand request, CancellationToken cancellationToken)
             {
                 await _programingLanguageBusinessRules.SomeFeatureEntityNameCanNotBeDuplicatedWhenInserted(request.Name);
 

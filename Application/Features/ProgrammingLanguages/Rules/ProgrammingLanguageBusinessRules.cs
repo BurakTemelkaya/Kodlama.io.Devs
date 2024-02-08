@@ -5,11 +5,11 @@ using Domain.Entites;
 
 namespace Application.Features.ProgrammingLanguages.Rules
 {
-    public class ProgramingLanguageBusinessRules
+    public class ProgrammingLanguageBusinessRules
     {
         private readonly IProgramingLanguageRepository _programingLanguageRepository;
 
-        public ProgramingLanguageBusinessRules(IProgramingLanguageRepository programingLanguageRepository)
+        public ProgrammingLanguageBusinessRules(IProgramingLanguageRepository programingLanguageRepository)
         {
             _programingLanguageRepository = programingLanguageRepository;
         }

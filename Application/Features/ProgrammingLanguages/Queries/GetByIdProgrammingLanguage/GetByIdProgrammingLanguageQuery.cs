@@ -15,10 +15,10 @@ namespace Application.Features.ProgrammingLanguages.Queries.GetByIdProgrammingLa
         {
             private readonly IProgramingLanguageRepository _programingLanguageRepository;
             private readonly IMapper _mapper;
-            private readonly ProgramingLanguageBusinessRules _programingLanguageBusinessRules;
+            private readonly ProgrammingLanguageBusinessRules _programingLanguageBusinessRules;
 
             public GetByIdProgrammingLanguageQueryHandler(IProgramingLanguageRepository programingLanguageRepository,
-                IMapper mapper, ProgramingLanguageBusinessRules programingLanguageBusinessRules)
+                IMapper mapper, ProgrammingLanguageBusinessRules programingLanguageBusinessRules)
             {
                 _programingLanguageRepository = programingLanguageRepository;
                 _mapper = mapper;

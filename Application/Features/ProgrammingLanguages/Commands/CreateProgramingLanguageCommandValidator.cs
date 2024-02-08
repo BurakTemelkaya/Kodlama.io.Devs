@@ -3,7 +3,7 @@ using FluentValidation;
 
 namespace Application.Features.ProgrammingLanguages.Commands
 {
-    public class CreateProgramingLanguageCommandValidator:AbstractValidator<CreatedProgrammingLanguageDto>
+    public class CreateProgramingLanguageCommandValidator : AbstractValidator<CreateProgrammingLanguageCommand>
     {
         public CreateProgramingLanguageCommandValidator()
         {

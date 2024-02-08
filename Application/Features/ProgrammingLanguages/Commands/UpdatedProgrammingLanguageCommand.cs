@@ -7,26 +7,26 @@ using MediatR;
 
 namespace Application.Features.ProgrammingLanguages.Commands
 {
-    public class UpdatedProgramingLanguageCommand : IRequest<UpdatedProgrammingLanguageDto>
+    public class UpdatedProgrammingLanguageCommand : IRequest<UpdatedProgrammingLanguageDto>
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public int PublicationDate { get; set; }
 
-        public class UpdatedProgramingLanguageCommandHandler : IRequestHandler<UpdatedProgramingLanguageCommand, UpdatedProgrammingLanguageDto>
+        public class UpdatedProgrammingLanguageCommandHandler : IRequestHandler<UpdatedProgrammingLanguageCommand, UpdatedProgrammingLanguageDto>
         {
             private readonly IProgramingLanguageRepository _programingLanguageRepository;
             private readonly IMapper _mapper;
-            private readonly ProgramingLanguageBusinessRules _programingLanguageBusinessRules;
+            private readonly ProgrammingLanguageBusinessRules _programingLanguageBusinessRules;
 
-            public UpdatedProgramingLanguageCommandHandler(IProgramingLanguageRepository programingLanguageRepository, IMapper mapper, ProgramingLanguageBusinessRules programingLanguageBusinessRules)
+            public UpdatedProgrammingLanguageCommandHandler(IProgramingLanguageRepository programingLanguageRepository, IMapper mapper, ProgrammingLanguageBusinessRules programingLanguageBusinessRules)
             {
                 _programingLanguageRepository = programingLanguageRepository;
                 _mapper = mapper;
                 _programingLanguageBusinessRules = programingLanguageBusinessRules;
             }
 
-            public async Task<UpdatedProgrammingLanguageDto> Handle(UpdatedProgramingLanguageCommand request, CancellationToken cancellationToken)
+            public async Task<UpdatedProgrammingLanguageDto> Handle(UpdatedProgrammingLanguageCommand request, CancellationToken cancellationToken)
             {
                 await _programingLanguageBusinessRules.SomeFeatureEntityNameCanNotBeDuplicatedWhenUpdated(request.Id, request.Name);
 

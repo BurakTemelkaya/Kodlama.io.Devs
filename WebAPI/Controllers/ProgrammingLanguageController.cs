@@ -14,14 +14,14 @@ namespace WebAPI.Controllers
     public class ProgrammingLanguageController : BaseController
     {
         [HttpPost("Create")]
-        public async Task<IActionResult> Add([FromBody] CreateProgramingLanguageCommand createProgramingLanguageCommand)
+        public async Task<IActionResult> Add([FromBody] CreateProgrammingLanguageCommand createProgramingLanguageCommand)
         {
             CreatedProgrammingLanguageDto result = await Mediator.Send(createProgramingLanguageCommand);
             return Created("", result);
         }
 
         [HttpPut("Update")]
-        public async Task<IActionResult> Update([FromBody] UpdatedProgramingLanguageCommand updatedProgramingLanguageCommand)
+        public async Task<IActionResult> Update([FromBody] UpdatedProgrammingLanguageCommand updatedProgramingLanguageCommand)
         {
             UpdatedProgrammingLanguageDto result = await Mediator.Send(updatedProgramingLanguageCommand);
             return Ok(result);

@@ -5,7 +5,8 @@ namespace Domain.Entites
     public class ProgrammingLanguage : Entity
     {
         public string Name { get; set; }
-        public int PublicationDate { get; set; }
+        public int? PublicationDate { get; set; }
+        public virtual IList<ProgrammingLanguageTechnology> ProgrammingLanguageTechnologies { get; set; }
 
         public ProgrammingLanguage()
         {

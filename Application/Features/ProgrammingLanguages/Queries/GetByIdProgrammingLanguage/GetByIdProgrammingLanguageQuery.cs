@@ -27,7 +27,8 @@ namespace Application.Features.ProgrammingLanguages.Queries.GetByIdProgrammingLa
 
             public async Task<ProgrammingLanguageGetByIdDto> Handle(GetByIdProgrammingLanguageQuery request, CancellationToken cancellationToken)
             {
-                ProgrammingLanguage? programmingLanguage = await _programingLanguageRepository.GetAsync(x=> x.Id== request.Id);
+                ProgrammingLanguage? programmingLanguage = await _programingLanguageRepository
+                    .GetAsync(x=> x.Id== request.Id);
 
                 _programingLanguageBusinessRules.ProgrammingLanguageShouldExistWhenRequested(programmingLanguage);
 

@@ -4,6 +4,10 @@ using Core.Application.Pipelines.Validation;
 using MediatR;
 using FluentValidation;
 using Application.Features.ProgrammingLanguages.Rules;
+using Application.Features.ProgrammingLanguageTechnologies.Rules;
+using Application.Auths.Rules;
+using Application.Services.Auth;
+using Application.Features.SocialMediaAddresses.Rules;
 
 namespace Application
 {
@@ -16,10 +20,15 @@ namespace Application
             
 
             services.AddScoped<ProgrammingLanguageBusinessRules>();
+            services.AddScoped<ProgrammingLanguageTechnologyBusinessRules>();
+            services.AddScoped<SocialMediaAddressBusinessRules>();
+            services.AddScoped<AuthBusinessRules>();
 
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestValidationBehavior<,>));
+
+            services.AddScoped<IAuthService, AuthManager>();
 
             return services;
         }
